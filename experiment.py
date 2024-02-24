@@ -42,5 +42,8 @@ if __name__ == "__main__":
         mlflow.log_params({"C": C, "test_size": test_size})
         mlflow.log_metrics({"accuracy": accuracy})
         mlflow.sklearn.log_model(
-            sk_model=logreg, input_example=X_val, artifact_path=ARTIFACT_PATH
+            sk_model=logreg,
+            input_example=X_val,
+            artifact_path=ARTIFACT_PATH,
+            registered_model_name="iris_model",
         )
