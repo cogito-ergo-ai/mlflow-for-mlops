@@ -13,14 +13,13 @@ The first step is to start the MLflow tracking server, this can be done by runni
 ./start_tracking_server.sh
 ```
 
-After the tracking seerver is correctly running, it is possible to run the **experiment.py** script, it will perform the following steps:
+After the tracking server is correctly running, it is possible to run the **experiment.py** script, it will perform the following steps:
 
-* Train a [LogisticRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) model for multiclass classification on the [Iris dataset](https://scikit-learn.org/stable/auto_examples/datasets/plot_iris_dataset.html). The output of the model can be on of the **three classes** of the training dataset (class 0, class 1, class 2)
+* Train a [LogisticRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) model for the multiclass classification on the [Iris dataset](https://scikit-learn.org/stable/auto_examples/datasets/plot_iris_dataset.html). The output of the model can be one of the **three classes** of the training dataset (class 0, class 1, class 2)
 * Track the experiment (hyperparameters and metrics). Learn more [here](https://mlflow.org/docs/latest/tracking.html)
 * Register the trained model in the [Model Registry](https://mlflow.org/docs/latest/model-registry.html)
 
 # Serving
-
 A model is usually served in two possible ways:
 
 * Batch: usually for non-interactive and scheduled jobs
