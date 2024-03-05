@@ -37,10 +37,19 @@ if __name__ == "__main__":
     logreg.fit(X, Y)
     y_pred = logreg.predict(X_val)
     accuracy = accuracy_score(y_val, y_pred)
+    features_info = {
+        "features": {
+            "sep_length": "sepal length in cm",
+            "sep_width": "sepal width in cm",
+            "pet_length": "petal length in cm",
+            "pet_width": "petal width in cm",
+        }
+    }
 
     with mlflow.start_run(run_name=RUN_NAME) as run:
         mlflow.log_params({"C": C, "test_size": test_size})
         mlflow.log_metrics({"accuracy": accuracy})
+        mlflow.log_dict(features_info, "features_info.json")
         mlflow.sklearn.log_model(
             sk_model=logreg,
             input_example=X_val,
